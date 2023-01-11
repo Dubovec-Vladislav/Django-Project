@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<!--  main slider  -->
+<!-- main slider -->
 <section class="slider_section">
     <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
         <div class="carousel-inner">
@@ -56,16 +56,18 @@
         <a class="bottom_arrow_scroll" href="#about"><img src="{% static 'icon/errow.png' %}"/></a>
     </div>
 </section>
-<!--  end main slider  -->
+<!-- end main slider -->
 
-<!-- about  -->
+<!-- about -->
 <div id="about" class="about">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="titlepage">
                     <h2>About Informations</h2>
-                    <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, a </span>
+                    <span>It is a long established fact that a reader will be distracted by the readable content of a
+                        page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                        normal distribution of letters, a </span>
                 </div>
             </div>
         </div>
@@ -95,19 +97,21 @@
 
             </div>
         </div>
-        <a href="Javascript:void(0)">read more</a>
+        <a href="{% url 'about' %}">Read more</a>
     </div>
 </div>
 <!-- end abouts -->
 
-<!-- Download -->
-<div id="screenshot" class="Screenshot">
+<!-- our project -->
+<div id="projects" class="Screenshot">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="titlepage">
-                    <h2>Screenshot</h2>
-                    <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of <br>using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span>
+                    <h2>Our end Projects</h2>
+                    <span>It is a long established fact that a reader will be distracted by the readable content of a
+                        page when looking at its layout. The point of <br>using Lorem Ipsum is that it has a
+                        more-or-less normal distribution of letters,</span>
                 </div>
             </div>
         </div>
@@ -137,16 +141,18 @@
         </div>
     </div>
 </div>
-<!-- end Download -->
+<!-- end our project -->
 
 <!-- service -->
-<div id="service" class="service">
+<div id="services" class="service">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="titlepage">
                     <h2>Services </h2>
-                    <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of <br>using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span>
+                    <span>It is a long established fact that a reader will be distracted by the readable content of a
+                        page when looking at its layout. The point of <br>using Lorem Ipsum is that it has a
+                        more-or-less normal distribution of letters,</span>
                 </div>
             </div>
         </div>
@@ -315,7 +321,7 @@
 </div>
 <!-- end our blog -->
 
-<!-- Testimonial -->
+<!-- testimonial -->
 <div id="contact" class="contact">
     <div class="container">
         <div class="row">
@@ -354,6 +360,6 @@
         </div>
     </div>
 </div>
-<!-- end Testimonial -->
+<!-- end testimonial -->
 
 {% endblock %}
