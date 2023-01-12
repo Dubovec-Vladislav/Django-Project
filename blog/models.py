@@ -66,7 +66,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     """Post Comments"""
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="get_comments")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="get_comments", verbose_name="Пост")
     name = models.CharField(max_length=50, verbose_name="Имя")
     comment = models.CharField(max_length=700, verbose_name="Коментарий")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
@@ -84,7 +84,8 @@ class Comment(models.Model):
 
 class ReplyComment(models.Model):
     """Reply Comments"""
-    parent_comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name="get_parent_comments")
+    parent_comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name="get_parent_comments",
+                                       verbose_name="Родительский Коментарий")
     name = models.CharField(max_length=50, verbose_name="Имя_отвечающего")
     comment = models.CharField(max_length=700, verbose_name="Коментарий_отвечающего")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
