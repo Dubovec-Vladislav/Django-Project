@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Tag(models.Model):
+    """Post Tags"""
     title = models.CharField(max_length=50, verbose_name='Название Тега')
     slug = models.SlugField(max_length=255, verbose_name='Url_of_Tag', unique=True)
 
@@ -20,6 +21,7 @@ class Tag(models.Model):
 
 
 class Category(models.Model):
+    """Post Categories"""
     title = models.CharField(max_length=255, verbose_name='Название Категории')
     slug = models.SlugField(max_length=255, verbose_name='Url_of_Category', unique=True)
 
@@ -36,6 +38,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    """Posts"""
     title = models.CharField(max_length=255, verbose_name='Название Поста')
     slug = models.SlugField(max_length=255, verbose_name='Url_of_Post', unique=True)
     author = models.CharField(max_length=100, verbose_name='Автор')
@@ -62,10 +65,12 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """Post Comments"""
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="get_comments")
     name = models.CharField(max_length=50, verbose_name="Имя")
     comment = models.CharField(max_length=700, verbose_name="Коментарий")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Время последнего Редактирования")
     likes = models.ManyToManyField(User, blank=True, related_name="likes_comments")
 
     def __str__(self):
@@ -78,10 +83,12 @@ class Comment(models.Model):
 
 
 class ReplyComment(models.Model):
+    """Reply Comments"""
     parent_comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name="get_parent_comments")
     name = models.CharField(max_length=50, verbose_name="Имя_отвечающего")
     comment = models.CharField(max_length=700, verbose_name="Коментарий_отвечающего")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Время последнего Редактирования")
     likes = models.ManyToManyField(User, blank=True, related_name="get_reply_comments_likes")
 
     def __str__(self):
