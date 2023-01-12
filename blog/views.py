@@ -1,5 +1,5 @@
 # from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Post, Category
 
 
@@ -28,3 +28,9 @@ class PostsByCategory(ListView):
 
     def get_queryset(self):
         return Post.objects.filter(category__slug=self.kwargs['slug'])
+
+
+class GetPost(DetailView):
+    model = Post
+    template_name = 'blog/single_post.html'
+    context_object_name = 'post'
