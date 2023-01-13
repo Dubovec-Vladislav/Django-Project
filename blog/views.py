@@ -1,6 +1,6 @@
 # from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Post, Category
+from .models import Post, Category, Tag
 
 
 class Home(ListView):
@@ -28,6 +28,21 @@ class PostsByCategory(ListView):
 
     def get_queryset(self):
         return Post.objects.filter(category__slug=self.kwargs['slug'])
+
+
+class PostsByTag(ListView):
+    template_name = 'blog/home.html'
+    context_object_name = 'posts'
+    paginate_by = 4
+    allow_empty = False
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f"Записи по тегу: {Tag.objects.get(slug=self.kwargs['slug'])}"
+        return context
+
+    def get_queryset(self):
+        return Post.objects.filter(tags__slug=self.kwargs['slug'])
 
 
 class GetPost(DetailView):
