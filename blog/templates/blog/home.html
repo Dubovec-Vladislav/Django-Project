@@ -15,8 +15,8 @@
             </div>
         </div>
         <div class="row">
+            {% for post in posts %}
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                {% for post in posts %}
                 <div class="blog-box">
                     <figure>
                         {% if post.photo %}
@@ -24,7 +24,7 @@
                         {% else %}
                         <img src="https://picsum.photos/id/1060/300/201/?blur=2" alt="{{ post.title }}">
                         {% endif %}
-                        <span>10 August 2019</span>
+                        <span>{{ post.created_at|date:"d.m.Y" }}</span>
                     </figure>
                     <div class="travel">
                         <span>Posted By: <span class="author-name">{{ post.author }}</span></span>
@@ -32,14 +32,13 @@
                         <p><strong class="like">05 </strong>Like</p>
                     </div>
                     <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-                    <p>{{ post.content|truncatewords_html:60|safe }}</p>
+                    <p>{{ post.content|truncatewords_html:58|safe }}</p>
+                    <h4><a href="{{ post.get_absolute_url }}">Read more...</a></h4>
                 </div>
-                {% empty %}
-                <p>По вашему запросу нет информации...</p>
-                <a href="{{ post.get_absolute_url }}">Read more...</a>
-                <h4><span>{{ post.created_at|date:"d.m.Y" }}</span></h4>
-                {% endfor %}
             </div>
+            {% empty %}
+            <p>По вашему запросу нет информации...</p>
+            {% endfor %}
         </div>
     </div>
 </div>
