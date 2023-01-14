@@ -11,7 +11,7 @@ class Home(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Classic Blog Design'
+        context['title'] = 'Boocic'
         return context
 
 
@@ -60,6 +60,7 @@ class Search(ListView):
         context = super().get_context_data(**kwargs)
         context['s'] = f"s={self.request.GET.get('s')}&"  # Для того чтобы
         # пристыковать ?s=пост к page=2 в строке запроса
+        context['title'] = "Searching Results"
         return context
 
     def get_queryset(self):

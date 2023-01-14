@@ -3,6 +3,8 @@
 
 {% load search_posts %}
 
+{% block title %}{{ block.super }} :: {{ title }}{% endblock %}
+
 {% block content %}
 
 {% show_search_posts cnt=page_obj.object_list %}

@@ -3,6 +3,8 @@
 
 {% load sidebar %}
 
+{% block title %}{{ block.super }} :: {{ post.title }}{% endblock %}
+
 {% block content %}
 
 <section class="single-blog-area">
