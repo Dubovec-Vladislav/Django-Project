@@ -34,6 +34,55 @@
     skeleton
 ---------------------------------------------------------------------*/
 
+/*css for pagination blog page*/
+
+.blog-post-area .pegination {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.blog-post-area .pegination .nav-links {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.blog-post-area .pegination .nav-links .page-numbers {
+    border: 1px solid #fc4311;
+    border-radius: 50%;
+    color: #fc4311;
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    height: 45px;
+    line-height: 45px;
+    list-style: outside none none;
+    margin-right: 5px;
+    text-align: center;
+    width: 45px;
+}
+
+.blog-post-area .blog-post-area-style {
+    margin: 0 20px 0 40px;
+}
+
+.blog-post-area .pegination .nav-links .page-numbers.current {
+    background: #fc4311;
+    color: #fff;
+}
+
+.blog-post-area .pegination .nav-links .page-numbers:hover {
+    background: #448aff;
+    color: #fff;
+}
+
+.blog-post-area .pegination .nav-links a {
+    text-decoration: none;
+}
+
+/*end pagination blog page*/
+
 /*css for single blog page*/
 
 .single-blog-area {
@@ -173,7 +222,7 @@
     width: 100%;
 }
 
-/*single blog part start*/
+/*single blog part end*/
 
 /*comment part start*/
 
