@@ -1,19 +1,5 @@
-{% extends 'base_blog/base.html' %}
-{% load static %}
-
-{% block content %}
-
-<!-- our blog -->
 <div id="blog" class="blog">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <a href="blog/"><h2>Our Blog</h2></a>
-                    <span>Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span>
-                </div>
-            </div>
-        </div>
         <div class="row">
             {% for post in posts %}
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -36,10 +22,9 @@
                     <h4><a href="{{ post.get_absolute_url }}">Read more...</a></h4>
                 </div>
             </div>
+            {% empty %}
+            <p>There is no information for your request...</p>
             {% endfor %}
         </div>
     </div>
 </div>
-<!-- end our blog -->
-
-{% endblock %}

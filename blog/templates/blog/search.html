@@ -1,0 +1,10 @@
+{% extends 'base_blog/base.html' %}
+{% load static %}
+
+{% load search_posts %}
+
+{% block content %}
+
+{% show_search_posts cnt=page_obj.object_list %}
+
+{% endblock %}
