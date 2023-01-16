@@ -71,7 +71,7 @@
                             </div>
 
                             <div class="commententries">
-                                <h2>Comments</h2>
+                                <h2>Comments List</h2>
 
                                 {% if post.get_comments.exists %}
                                 {% for comment in post.get_comments.all %}
@@ -92,14 +92,16 @@
                                                 </div>
                                                 <div class="reply">
 
-                                                    <form action="" method="POST">
+                                                    <form action="{% url 'like_comments' post.slug %}" method="POST">
 
                                                         {% csrf_token %}
 
                                                         <button type="submit" name="comment_id"
                                                                 value="{{ comment.id }}"
                                                                 class="btn btn-primary fa fa-thumbs-up"
-                                                                aria-hidden="true"> {{ comment.likes.count }}
+                                                                aria-hidden="true"
+                                                                style="background-color:#fc4311; border-color:#fc4311;">
+                                                            {{ comment.likes.count }}
                                                         </button>
                                                     </form>
 
@@ -114,7 +116,7 @@
 
                             </div>
 
-                            <form action="#" method="get">
+                            <!--<form action="#" method="get">
                                 <div class="name">
                                     <input type="text" name="" id="" placeholder="Name" class="name">
                                 </div>
@@ -127,7 +129,7 @@
                                 <div class="post">
                                     <input type="submit" value="Post">
                                 </div>
-                            </form>
+                            </form>-->
 
                         </div>
                     </div>

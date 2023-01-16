@@ -100,3 +100,12 @@ class CreateComment(CreateView):
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
+
+
+def CommentLikeView(request, slug):
+    if request.user.is_authenticated:
+        comment = get_object_or_404(Comment, id=request.POST.get('comment_id'))
+        comment.likes.add(request.user)
+        return redirect('post', slug)
+    else:
+        return redirect('/')

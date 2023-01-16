@@ -10,4 +10,5 @@ urlpatterns = [
     path('like/<str:slug>/', LikeView, name='like_news'),
     path('remove-like/<str:slug>/', RemoveLikeView, name='remove_like_news'),
     path('post/<int:pk>/add-comment/', CreateComment.as_view(), name='add_comment'),
+    path('comment-like/<str:slug>/', CommentLikeView, name='like_comments'),
 ]

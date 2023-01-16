@@ -98,7 +98,7 @@
     font-family: Geometria;
     font-size: 38px;
     font-weight: 500;
-    margin-bottom: 60px;
+    margin-bottom: 45px;
     margin-top: 45px;
 }
 
@@ -106,7 +106,7 @@
     font-family: Geometria;
     font-size: 15px;
     font-weight: 500;
-    line-height: 35px;
+    line-height: 55px;
     position: relative;
     text-align: justify;
 }
@@ -282,7 +282,7 @@
 .single-blog-area .commententries .author-name h5 a {
     color: #000;
     font-family: Geometria;
-    font-size: 21px;
+    font-size: 32px;
     font-weight: 500;
     line-height: 10px;
     color: #000;
@@ -291,17 +291,16 @@
 .single-blog-area .commententries .author-name p {
     color: #000;
     font-family: Geometria;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 10px;
-    color: #989191
+    color: #666666
 }
 .single-blog-area .commententries .comment-body p {
     font-family: Geometria;
-    font-size: 15px;
+    font-size: 28px;
     font-weight: 500;
-    line-height: 25px;
-    color: #989191
+    color: #666666
 }
 .single-blog-area .commententries .reply p span {
     color: #989191;
@@ -2279,7 +2278,7 @@ margin-top: 50px;
 
 .blog {
      background-color: #fff;
-     padding: 90px 0px;
+     padding: 65px 0px;
 }
 .blog .titlepage {
      text-align: center;
@@ -2289,7 +2288,6 @@ margin-top: 50px;
      font-size: 45px;
      font-weight: bold;
      color: #0e0f10;
-     line-height: 50px;
      display: inline-block;
      position: relative;
      border-bottom: #fc4311 solid 1px;
