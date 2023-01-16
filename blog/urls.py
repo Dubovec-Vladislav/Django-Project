@@ -7,4 +7,6 @@ urlpatterns = [
     path('tag/<str:slug>/', PostsByTag.as_view(), name='tag'),
     path('post/<str:slug>/', GetPost.as_view(), name='post'),
     path('search/', Search.as_view(), name='search'),
+    path('like/<str:slug>/', LikeView, name='like_news'),
+    path('remove-like/<str:slug>/', RemoveLikeView, name='remove_like_news'),
 ]

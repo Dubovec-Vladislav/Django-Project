@@ -2,6 +2,8 @@
 from django.views.generic import ListView, DetailView
 from .models import Post, Category, Tag
 
+from django.shortcuts import get_object_or_404, redirect
+
 
 class Home(ListView):
     model = Post
@@ -65,3 +67,23 @@ class Search(ListView):
 
     def get_queryset(self):
         return Post.objects.filter(title__icontains=self.request.GET.get('s'))
+
+
+def LikeView(request, slug):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, slug=request.POST.get('post_slug'))
+        post.likes.add(request.user)
+        # return HttpResponseRedirect(reverse('view_news', args=[str(pk)]))
+        return redirect('post', slug)
+    else:
+        return redirect('/')
+
+
+def RemoveLikeView(request, slug):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, slug=request.POST.get('post_slug'))
+        post.likes.remove(request.user)
+        # return HttpResponseRedirect(reverse('view_news', args=[str(pk)]))
+        return redirect('post', slug)
+    else:
+        return redirect('/')

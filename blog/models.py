@@ -59,6 +59,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post', kwargs={"slug": self.slug})
 
+    def total_likes(self):
+        return self.likes.count()
+
     class Meta:
         verbose_name = "Пост"
         verbose_name_plural = "Посты(ов)"

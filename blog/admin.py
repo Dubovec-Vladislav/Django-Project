@@ -31,7 +31,7 @@ class PostAdmin(admin.ModelAdmin):
 
     readonly_fields = ("get_photo", "views", "created_at", "updated_at")
     fields = ("title", "slug", "author", "category", "tags", "content", "photo", "get_photo", "is_published",
-              "views", "created_at")
+              "views", "likes", "created_at")
 
     def get_photo(self, object):
         if object.photo:

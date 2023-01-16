@@ -369,7 +369,7 @@
     right: 0;
 }
 .single-blog-area form .post input[type="submit"] {
-    background: #40c4ff none repeat scroll 0 0;
+    background: #fc4311 none repeat scroll 0 0;
     bottom: 0;
     color: #fff;
     font-family: Geometria;
@@ -469,7 +469,7 @@
     text-transform: uppercase;
 }
 .single-blog-area .tags p {
-    background: #40c4ff none repeat scroll 0 0;
+    background: #fc4311 none repeat scroll 0 0;
     border-radius: 5px;
     display: inline-block;
     font-family: Geometria;
@@ -493,7 +493,7 @@
 }
 .single-blog-area .newsletter input[type="submit"] {
     width: 40%;
-    background: #40c4ff;
+    background: #fc4311;
     color: #fff;
     text-transform: uppercase;
     font-family: Geometria;
