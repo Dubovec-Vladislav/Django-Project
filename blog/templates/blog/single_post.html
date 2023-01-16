@@ -37,6 +37,8 @@
                                 </div>
                             </div>
 
+                            <span></span>
+
                             <form action="{% url 'like_news' post.slug %}" method="POST">
 
                                 {% csrf_token %}
@@ -104,6 +106,50 @@
                                                             {{ comment.likes.count }}
                                                         </button>
                                                     </form>
+
+                                                    <br/>
+
+                                                    {% if comment.get_parent_comments.exists %}
+
+                                                    <div id="reply_comment" class="menu">
+                                                        <hr size="4">
+                                                        <ul>
+                                                            {% for reply_comment in comment.get_parent_comments.all %}
+
+                                                            <article class="comment">
+                                                                <header class="comment-author">
+                                                                    <img src="{% static 'img/2.jpg' %}" alt="">
+                                                                </header>
+                                                                <section class="comment-details">
+                                                                    <div class="author-name">
+                                                                        <h5>
+                                                                            <a href="#">{{reply_comment.name}}</a>
+                                                                        </h5>
+                                                                        <p>{{reply_comment.created_at}}</p>
+                                                                    </div>
+                                                                    <div class="comment-body">
+                                                                        <p>{{reply_comment.comment}}</p>
+                                                                    </div>
+                                                                    <div class="reply">
+                                                                        <form action="" method="POST">{%csrf_token%}
+                                                                            <button type="submit"
+                                                                                    name="comment_id"
+                                                                                    value="{{ reply_comment.id }}"
+                                                                                    class="btn btn-primary btn-sm fa fa-thumbs-up"
+                                                                                    aria-hidden="true"
+                                                                                    style="background-color:#fc4311; border-color:#fc4311;">
+                                                                                {{reply_comment.likes.count}}
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
+                                                                </section>
+                                                            </article>
+
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </div>
+
+                                                    {% endif %}
 
                                                 </div>
                                             </section>
