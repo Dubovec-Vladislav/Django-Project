@@ -1,8 +1,10 @@
 # from django.shortcuts import render
-from django.views.generic import ListView, DetailView
-from .models import Post, Category, Tag
+from django.views.generic import ListView, DetailView, CreateView
+from .models import Post, Category, Tag, Comment
+from .forms import CommentForm
 
 from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse_lazy
 
 
 class Home(ListView):
@@ -87,3 +89,14 @@ def RemoveLikeView(request, slug):
         return redirect('post', slug)
     else:
         return redirect('/')
+
+
+class CreateComment(CreateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = "blog/add_comment.html"
+    success_url = reverse_lazy('blog_home')
+
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)

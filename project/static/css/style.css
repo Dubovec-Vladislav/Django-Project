@@ -2293,11 +2293,11 @@ margin-top: 50px;
      display: inline-block;
      position: relative;
      border-bottom: #fc4311 solid 1px;
-width: 209px;
-margin: 0 auto;
-margin-bottom: 0px;
-margin-bottom: 0px;
-margin-bottom: 20px;
+    width: auto;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 .blog .titlepage span {
      color: #0e0f10;
@@ -2471,12 +2471,44 @@ margin-bottom: 20px;
 	padding-right: 10px;
 }
 
+label {
+    margin-left: 12.5%;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-family: Geometria;
+}
+
 .form-control {
-	border: #b1b0b0 solid 2px;
+    height: 10%;
+    margin-left: 12.5%;
+    width: 75%;
+	border: #b1b0b0 solid 1px;
 	margin-bottom: 30px;
 	border-radius: inherit;
 	padding: 16px 19px;
 	color: #cfcece;
+}
+
+/*.btn:not(:disabled):not(.disabled) {
+    margin-left: 45%;
+    cursor: pointer;
+    margin-bottom: 30px;
+    border-radius:  5px;
+}*/
+
+.form-btn {
+    color: white;
+    font-size: 16px;
+    margin-left: 45%;
+    cursor: pointer;
+    margin-bottom: 30px;
+
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 24px;
+    line-height: auto;
+    border-radius: 1rem;
+    width: 100x;
 }
 
 .form-control:focus,
