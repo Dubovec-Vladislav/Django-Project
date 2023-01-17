@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Post, Category, Tag, Comment
-from .forms import CommentForm
+from .models import Post, Category, Tag, Comment, ReplyComment
+from .forms import CommentForm, ReplyCommentForm
 
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -109,3 +109,15 @@ def CommentLikeView(request, slug):
         return redirect('post', slug)
     else:
         return redirect('/')
+
+
+class CreateReplyComment(CreateView):
+    model = ReplyComment
+    form_class = ReplyCommentForm
+    template_name = "blog/add_reply_comment.html"
+    # fields = '__all__'
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.parent_comment_id = self.kwargs['pk']
+        return super().form_valid(form)

@@ -83,7 +83,7 @@ class Comment(models.Model):
     class Meta:
         verbose_name = "Коментарий"
         verbose_name_plural = "Коментарии"
-        ordering = ["name"]
+        ordering = ["created_at"]
 
 
 class ReplyComment(models.Model):
@@ -102,4 +102,4 @@ class ReplyComment(models.Model):
     class Meta:
         verbose_name = "Ответный_Коментарий"
         verbose_name_plural = "Ответные_Коментарии"
-        ordering = ["name"]
+        ordering = ["created_at"]
