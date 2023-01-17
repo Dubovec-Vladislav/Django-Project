@@ -121,3 +121,12 @@ class CreateReplyComment(CreateView):
     def form_valid(self, form):
         form.instance.parent_comment_id = self.kwargs['pk']
         return super().form_valid(form)
+
+
+def ReplyCommentLikeView(request, slug):
+    if request.user.is_authenticated:
+        comment = get_object_or_404(ReplyComment, id=request.POST.get('reply_comment.id'))
+        comment.likes.add(request.user)
+        return redirect('post', slug)
+    else:
+        return redirect('/')

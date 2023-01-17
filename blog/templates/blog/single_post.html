@@ -123,22 +123,23 @@
                                                                 <section class="comment-details">
                                                                     <div class="author-name">
                                                                         <h5>
-                                                                            <a href="#">{{reply_comment.name}}</a>
+                                                                            <a href="#">{{ reply_comment.name }}</a>
                                                                         </h5>
-                                                                        <p>{{reply_comment.created_at}}</p>
+                                                                        <p>{{ reply_comment.created_at }}</p>
                                                                     </div>
                                                                     <div class="comment-body">
-                                                                        <p>{{reply_comment.comment}}</p>
+                                                                        <p>{{ reply_comment.comment }}</p>
                                                                     </div>
                                                                     <div class="reply">
-                                                                        <form action="" method="POST">{%csrf_token%}
+                                                                        <form action="{% url 'like_reply_comments' post.slug %}"
+                                                                              method="POST">{% csrf_token %}
                                                                             <button type="submit"
-                                                                                    name="comment_id"
+                                                                                    name="reply_comment.id"
                                                                                     value="{{ reply_comment.id }}"
                                                                                     class="btn btn-primary btn-sm fa fa-thumbs-up"
                                                                                     aria-hidden="true"
                                                                                     style="background-color:#fc4311; border-color:#fc4311;">
-                                                                                {{reply_comment.likes.count}}
+                                                                                {{ reply_comment.likes.count }}
                                                                             </button>
                                                                         </form>
                                                                     </div>

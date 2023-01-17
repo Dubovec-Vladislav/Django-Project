@@ -15,4 +15,5 @@ urlpatterns = [
     path('comment-like/<str:slug>/', CommentLikeView, name='like_comments'),
 
     path('post/<int:pk>/add-reply-comment/', CreateReplyComment.as_view(), name='add_reply_comment'),
+    path('reply-comment-like/<str:slug>/', ReplyCommentLikeView, name='like_reply_comments'),
 ]
