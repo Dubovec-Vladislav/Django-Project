@@ -1,6 +1,8 @@
 {% extends 'base_blog/base.html' %}
 {% load static %}
 
+{% load sum_of_comments %}
+
 {% block title %}{{ block.super }} :: {{ title }}{% endblock %}
 
 {% block content %}
@@ -30,7 +32,7 @@
                     </figure>
                     <div class="travel">
                         <span>Posted By: <span class="author-name">{{ post.author }}</span></span>
-                        <p><strong class="Comment"> 06 </strong> Comment</p>
+                        {% show_sum_of_comments post %}
                         <p><strong class="like">05 </strong>Like</p>
                     </div>
                     <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
