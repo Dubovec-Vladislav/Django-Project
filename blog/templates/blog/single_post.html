@@ -73,10 +73,11 @@
                             </div>
 
                             <div class="commententries">
-                                <h2>Comments List</h2>
 
                                 {% if post.get_comments.exists %}
                                 {% for comment in post.get_comments.all %}
+
+                                <h2>Comments List</h2>
 
                                 <ul class="commentlist">
                                     <li>

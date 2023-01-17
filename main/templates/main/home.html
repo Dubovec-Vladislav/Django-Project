@@ -266,8 +266,18 @@
                         <p><strong class="like">{{ post.likes.count }}</strong> Likes </p>
                     </div>
                     <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-                    <p>{{ post.content|truncatewords_html:58|safe }}</p>
-                    <h4><a href="{{ post.get_absolute_url }}">Read more...</a></h4>
+                    <p>{{ post.content|truncatewords_html:65|safe }}</p>
+
+                    <br>
+
+                    <div class="row" style="margin-left: 30%; margin-top: 10px">
+                        <div class="col-md-5">
+                            <div class="read-more">
+                                <a href="{{ post.get_absolute_url }}">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             {% endfor %}
