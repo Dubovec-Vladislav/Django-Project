@@ -90,9 +90,9 @@
                 </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div class="about-img">
+                <div class="about-img scale">
 
-                    <figure><img src="{% static 'images/aboutimg.png' %}" alt="img"/></figure>
+                    <figure><img src="{% static 'images/aboutimg.png' %}" alt="img" class="scale"/></figure>
 
                 </div>
 
@@ -251,12 +251,12 @@
         <div class="row">
             {% for post in posts %}
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                <div class="blog-box">
+                <div class="blog-box scale">
                     <figure>
                         {% if post.photo %}
                         <img src="{{ post.photo.url }}" alt="{{ post.title }}">
                         {% else %}
-                        <img src="https://picsum.photos/id/1060/300/201/?blur=2" alt="{{ post.title }}">
+                        <img src="https://picsum.photos/id/1060/300/201/?blur=2" alt="{{ post.title }}" class="scale">
                         {% endif %}
                         <span>{{ post.created_at|date:"d.m.Y" }}</span>
                     </figure>
@@ -270,7 +270,7 @@
 
                     <br>
 
-                    <div class="row" style="margin-left: 30%; margin-top: 10px">
+                    <div class="row" style="margin-left: 30%; margin-top: 15px">
                         <div class="col-md-5">
                             <div class="read-more">
                                 <a href="{{ post.get_absolute_url }}">Read more</a>
