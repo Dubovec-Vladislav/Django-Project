@@ -16,4 +16,8 @@ urlpatterns = [
 
     path('post/<int:pk>/add-reply-comment/', CreateReplyComment.as_view(), name='add_reply_comment'),
     path('reply-comment-like/<str:slug>/', ReplyCommentLikeView, name='like_reply_comments'),
+
+    path('register/', RegisterUser.as_view(), name='register'),
+    path('login/', Login.as_view(), name='login'),
+    path('logout/', Logout.as_view(), name='logout'),
 ]

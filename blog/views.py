@@ -1,10 +1,13 @@
 # from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Post, Category, Tag, Comment, ReplyComment
-from .forms import CommentForm, ReplyCommentForm
+
+from .forms import CommentForm, ReplyCommentForm, RegisterUserForm, LoginUserForm
+from django.contrib.auth.views import LoginView, LogoutView
 
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.contrib.auth import login
 
 
 class Home(ListView):
@@ -62,8 +65,7 @@ class Search(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['s'] = f"s={self.request.GET.get('s')}&"  # Для того чтобы
-        # пристыковать ?s=пост к page=2 в строке запроса
+        context['s'] = f"s={self.request.GET.get('s')}&"
         context['title'] = "Searching Results"
         return context
 
@@ -75,20 +77,18 @@ def LikeView(request, slug):
     if request.user.is_authenticated:
         post = get_object_or_404(Post, slug=request.POST.get('post_slug'))
         post.likes.add(request.user)
-        # return HttpResponseRedirect(reverse('view_news', args=[str(pk)]))
         return redirect('post', slug)
     else:
-        return redirect('/')
+        return redirect('login')
 
 
 def RemoveLikeView(request, slug):
     if request.user.is_authenticated:
         post = get_object_or_404(Post, slug=request.POST.get('post_slug'))
         post.likes.remove(request.user)
-        # return HttpResponseRedirect(reverse('view_news', args=[str(pk)]))
         return redirect('post', slug)
     else:
-        return redirect('/')
+        return redirect('login')
 
 
 class CreateComment(CreateView):
@@ -108,7 +108,7 @@ def CommentLikeView(request, slug):
         comment.likes.add(request.user)
         return redirect('post', slug)
     else:
-        return redirect('/')
+        return redirect('login')
 
 
 class CreateReplyComment(CreateView):
@@ -129,4 +129,24 @@ def ReplyCommentLikeView(request, slug):
         comment.likes.add(request.user)
         return redirect('post', slug)
     else:
-        return redirect('/')
+        return redirect('login')
+
+
+class RegisterUser(CreateView):
+    form_class = RegisterUserForm
+    template_name = "blog/register.html"
+    success_url = reverse_lazy('login')
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('home')
+
+
+class Login(LoginView):
+    form_class = LoginUserForm
+    template_name = "blog/login.html"
+
+
+class Logout(LogoutView):
+    pass

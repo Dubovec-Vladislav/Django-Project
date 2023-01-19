@@ -1,0 +1,25 @@
+{% extends 'base_blog/base.html' %}
+{% block title %}{{ block.super }} :: Register{% endblock %}
+
+{% block content %}
+
+<div class="blog">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="titlepage">
+                <a href="{% url 'blog_home' %}"><h2>Register</h2></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <button class="form-btn"
+            style="background-color:#fc4311; border-color:#fc4311;">Register
+    </button>
+</form>
+
+{% endblock %}
