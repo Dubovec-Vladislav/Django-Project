@@ -34,6 +34,20 @@
     skeleton
 ---------------------------------------------------------------------*/
 
+.video-wrapper {
+    min-height: 100hv;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+.video {
+
+}
+.video__item {
+    width: 100%;
+}
+
 .scale {
     display: inline-block; /* Строчно-блочный элемент */
     overflow: hidden; /* Скрываем всё за контуром */

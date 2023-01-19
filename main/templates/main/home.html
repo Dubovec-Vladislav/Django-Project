@@ -5,8 +5,47 @@
 
 {% block content %}
 
+<div class="video-wrapper">
+    <!-- Фуллскрин -->
+    <!--<div class="full-screen">
+        <div class="full-screen__body">
+            <div class="full-screen__title">велосипед</div>
+            <div class="full-screen__text">это крутяк</div>
+        </div>
+        <video autoplay muted loop preload="auto" class="full-screen__video">
+            <source src="{% static 'videos/baking.webm' %}" type="video/webm">
+            <source src="{% static 'videos/baking.mp4' %}" type="video/mp4">
+        </video>
+    </div>-->
+
+    <!--<div class="full-screen">
+        <div class="full-screen__body">
+            <div class="full_screen__title">Lorem ipsum</div>
+            <div class="full-screen__text">It is a long established fact that a reader will be</div>
+
+            <video loop muted autoplay class="video__item">
+                <source src="{% static 'videos/baking.webm' %}" type="video/webm">
+                <source src="{% static 'videos/baking.mp4' %}" type="video/mp4">
+            </video>
+
+        </div>
+    </div>-->
+
+    <div class="video">
+        <video loop muted autoplay class="video__item">
+            <source src="{% static 'videos/baking.webm' %}" type="video/webm">
+            <source src="{% static 'videos/baking.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+
+
+
+</div>
+
+<a class="bottom_arrow_scroll" href="#about"><img src="{% static 'icon/errow.png' %}"/></a>
+
 <!-- main slider -->
-<section class="slider_section">
+<!--<section class="slider_section">
     <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -56,7 +95,7 @@
         </a>
         <a class="bottom_arrow_scroll" href="#about"><img src="{% static 'icon/errow.png' %}"/></a>
     </div>
-</section>
+</section>-->
 <!-- end main slider -->
 
 <!-- about -->
@@ -78,13 +117,20 @@
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                 <div class="about-box">
                     <h3>distracted by the readable </h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                        distribution of letters, aIt is a long established fact that a reader will be distracted by the
-                        readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it
-                        has a more-or-less normal distribution of letters, aIt is a long established fact that a reader
-                        will be distracted by the readable content of a page when looking at its layout. The point of
-                        using Lorem Ipsum is that it has a more-or-less normal distribution of lettersdistracted by the
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a
+                        page
+                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                        normal
+                        distribution of letters, aIt is a long established fact that a reader will be distracted by
+                        the
+                        readable content of a page when looking at its layout. The point of using Lorem Ipsum is
+                        that it
+                        has a more-or-less normal distribution of letters, aIt is a long established fact that a
+                        reader
+                        will be distracted by the readable content of a page when looking at its layout. The point
+                        of
+                        using Lorem Ipsum is that it has a more-or-less normal distribution of lettersdistracted by
+                        the
                         readable distracted by the readable , a</p>
 
                 </div>
@@ -256,7 +302,8 @@
                         {% if post.photo %}
                         <img src="{{ post.photo.url }}" alt="{{ post.title }}">
                         {% else %}
-                        <img src="https://picsum.photos/id/1060/300/201/?blur=2" alt="{{ post.title }}" class="scale">
+                        <img src="https://picsum.photos/id/1060/300/201/?blur=2" alt="{{ post.title }}"
+                             class="scale">
                         {% endif %}
                         <span>{{ post.created_at|date:"d.m.Y" }}</span>
                     </figure>
@@ -313,7 +360,8 @@
                                 <input class="contactus" placeholder="Email" type="text" name="Email">
                             </div>
                             <div class="col-sm-12">
-                                <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
+                                    <textarea class="textarea" placeholder="Message" type="text"
+                                              name="Message"></textarea>
                             </div>
                             <div class="col-sm-12">
                                 <button class="send">Send</button>
