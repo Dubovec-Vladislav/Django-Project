@@ -42,42 +42,37 @@
                             <form action="{% url 'like_news' post.slug %}" method="POST">
 
                                 {% csrf_token %}
-                                <div class="container">
-                                    <button type="submit" name="post_slug" value="{{ post.slug }}"
-                                            class="btn btn-primary"
-                                            style="background-color:#fc4311; border-color:#fc4311;">Like
-                                    </button>
-                                    - {{ post.total_likes }} Likes
-                                </div>
+                                <button type="submit" name="post_slug" value="{{ post.slug }}"
+                                        class="btn btn-primary"
+                                        style="background-color:#fc4311; border-color:#fc4311;">Like
+                                </button>
+                                - {{ post.total_likes }} Likes
 
                             </form>
 
                             <form action="{% url 'remove_like_news' post.slug %}" method="POST">
 
                                 {% csrf_token %}
-                                <div class="container">
-                                    <button type="submit" name="post_slug" value="{{ post.slug }}"
-                                            class="btn btn-primary"
-                                            style="background-color:#fc4311; border-color:#fc4311;">Cancel Like
-                                    </button>
-                                </div>
+                                <button type="submit" name="post_slug" value="{{ post.slug }}"
+                                        class="btn btn-primary"
+                                        style="background-color:#fc4311; border-color:#fc4311;">Cancel Like
+                                </button>
 
                             </form>
 
-                            <div class="container">
-                                <form action="{% url 'add_comment' post.pk %}">
-                                    <button class="btn btn-primary"
-                                            style="background-color:#fc4311; border-color:#fc4311;">Add Comment
-                                    </button>
-                                </form>
-                            </div>
+                            <form action="{% url 'add_comment' post.pk %}">
+                                <button class="btn btn-primary"
+                                        style="background-color:#fc4311; border-color:#fc4311;">Add Comment
+                                </button>
+                            </form>
 
                             <div class="commententries">
 
                                 {% if post.get_comments.exists %}
-                                {% for comment in post.get_comments.all %}
 
                                 <h2>Comments List</h2>
+
+                                {% for comment in post.get_comments.all %}
 
                                 <ul class="commentlist">
                                     <li>
