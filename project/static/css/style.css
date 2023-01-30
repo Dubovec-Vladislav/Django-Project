@@ -34,15 +34,49 @@
     skeleton
 ---------------------------------------------------------------------*/
 
+.full-screen {
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.full-screen__body {
+	padding: 50px 15px;
+	color: #E5E3E4;
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	flex: 1 1 auto;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-transform: uppercase;
+}
+.full-screen__title {
+	font-size: 60px;
+	letter-spacing: 25px;
+	font-weight: 700;
+	margin-top: 90px;
+}
+.full-screen__text {
+	font-size: 25px;
+	letter-spacing: 15px;
+	margin-top: 30px;
+}
+.full-screen__video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	object-fit: cover;
+}
+
 .video-wrapper {
     min-height: 100hv;
     display: flex;
     flex-direction: column;
 
     align-items: center;
-}
-.video {
-
 }
 .video__item {
     width: 100%;
@@ -661,6 +695,7 @@ a {
 	margin: 15px 0 15px 0;
 	background-color:#fc4311;
 	border-color:#fc4311;
+	transition: 0.75s;
 }
 .btn:hover {
     background-color: black;
@@ -2294,7 +2329,7 @@ img.zoom {
 	line-height: 46px;
 	border-bottom: #fc4311 solid 1px;
 	width: 410px;
-	margin: 0 auto;
+	margin: 100px auto;
 	margin-bottom: 0px;
 	margin-bottom: 20px;
 }
